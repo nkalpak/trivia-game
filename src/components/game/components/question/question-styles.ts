@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 export const QuestionStyled = styled.div`
-  width: 350px;
   text-align: center;
-  
+  max-width: 500px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -13,7 +13,10 @@ export const QuestionStyled = styled.div`
 export const QuestionContainerStyled = styled.div`
   min-height: 100px;
   height: 100%;
-  padding: 16px;
+  
+  @media(max-width: 768px) {
+    padding: 16px;
+  }
 `;
 
 export const AnswersContainerStyled = styled.div`

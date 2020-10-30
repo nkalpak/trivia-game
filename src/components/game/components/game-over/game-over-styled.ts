@@ -8,6 +8,5 @@ export const GameOverStyled = styled.div`
 `;
 
 export const LimelightWrapperStyled = styled.div`
-  margin-top: 100px;
-  margin-bottom: 100px;
+  margin: 50px 0;
 `;
