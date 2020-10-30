@@ -1,1 +1,3 @@
-export const API = process.env.REACT_APP_API;
+export const API = 'https://opentdb.com/api.php';
+
+export * from './types';

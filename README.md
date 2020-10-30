@@ -4,7 +4,8 @@
 
 #### Project Setup
 1. Run `yarn install`
-2. Run `yarn start`
+2. Create a `.env` file in the root directory and copy the contents from `.env-example`, replacing as you see fit _(this project doesn't use `.env`, it is only here for showcase purposes)_
+3. Run `yarn start`
 
 #### Folder Structure
 - `assets` -- all the visual assets
@@ -21,6 +22,11 @@
 - If a component has sub-components, they are placed within a `components` folder inside the main component directory
 - Components live in a `.tsx` file with the same name as the directory, and are re-exported from an `index.ts`
 - The hooks that a component needs live in a `use-{component_name}` file
+
+#### Linting
+##### Eslint
+This project uses the Airbnb eslint config and typescript-eslint 
+All custom rules are inside `.eslintrc`
 
 #### Dependencies
 - `react-router-dom` -- routing
