@@ -20,6 +20,6 @@ interface HeadingStyledProps {
 
 export const HeadingStyled = styled.h1<HeadingStyledProps>`
   color: white;
-  text-shadow: 0 4px 15px black;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
   font-size: ${props => `${props.size}px`};
 `;
