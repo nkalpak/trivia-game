@@ -6,7 +6,6 @@ export const QuestionStyled = styled.div`
   padding: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 `;
 
@@ -14,9 +13,8 @@ export const QuestionContainerStyled = styled.div`
   min-height: 100px;
   height: 100%;
   
-  @media(max-width: 768px) {
-    padding: 16px;
-  }
+  margin-bottom: 16px;
+  padding: 16px;
 `;
 
 export const AnswersContainerStyled = styled.div`

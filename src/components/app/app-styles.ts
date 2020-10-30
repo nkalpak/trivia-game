@@ -6,7 +6,7 @@ export const ContainerStyled = styled.div`
 
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(45deg, rgba(156,114,255,1) 0%, rgba(134,91,240,1) 100%);
+  background: linear-gradient(45deg, #9C72FF 100%, #865BF0 0%);
   
   display: flex;
   flex-direction: column;

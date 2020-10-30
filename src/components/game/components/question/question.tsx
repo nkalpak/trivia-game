@@ -13,7 +13,7 @@ interface QuestionProps {
 export const Question: React.FC<QuestionProps> = ({ question, onAnswer }) => (
   <QuestionStyled>
     <QuestionContainerStyled>
-      <HeadingStyled>{replaceHtmlQuoteAttribute(question.question)}</HeadingStyled>
+      <HeadingStyled size={22}>{replaceHtmlQuoteAttribute(question.question)}</HeadingStyled>
     </QuestionContainerStyled>
 
     <AnswersContainerStyled>
