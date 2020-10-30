@@ -26,6 +26,7 @@
 #### Linting
 ##### Eslint
 This project uses the Airbnb eslint config and typescript-eslint 
+
 All custom rules are inside `.eslintrc`
 
 #### Dependencies
