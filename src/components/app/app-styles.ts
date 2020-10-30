@@ -7,6 +7,11 @@ export const ContainerStyled = styled.div`
   width: 100vw;
   height: 100vh;
   background: linear-gradient(45deg, rgba(156,114,255,1) 0%, rgba(134,91,240,1) 100%);
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 interface HeadingStyledProps {

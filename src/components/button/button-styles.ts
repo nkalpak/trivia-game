@@ -17,14 +17,14 @@ const getBoxShadow = (props: ButtonStyledProps) => {
 
 export const ButtonStyled = styled.button<ButtonStyledProps>`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  position: relative;
   
   min-width: 300px;
   border-radius: 999px;
-  text-transform: initial;
   
-  font-size: 25px;
+  font-size: 20px;
   font-family: 'Monserrat', sans-serif;
   font-weight: 900;
   color: white;
@@ -35,4 +35,18 @@ export const ButtonStyled = styled.button<ButtonStyledProps>`
   border: none;
   background: ${getBackground};
   box-shadow: ${getBoxShadow};
+  
+  &:disabled {
+    cursor: not-allowed;
+  }
+`;
+
+export const IconLeftStyled = styled.span`
+  position: absolute;
+  left: 20px;
+`;
+
+export const IconRightStyled = styled.span`
+  position: absolute;
+  right: 20px;
 `;
