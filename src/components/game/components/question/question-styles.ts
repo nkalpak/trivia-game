@@ -14,7 +14,6 @@ export const QuestionContainerStyled = styled.div`
   height: 100%;
   
   margin-bottom: 16px;
-  padding: 16px;
 `;
 
 export const AnswersContainerStyled = styled.div`
