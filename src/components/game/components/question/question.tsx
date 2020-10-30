@@ -1,9 +1,10 @@
 import React from 'react';
+import parse from 'html-react-parser';
 import { AnswerType, QuestionType } from '../../../../global/types';
 import { HeadingStyled } from '../../../app/app-styles';
 import { Button } from '../../../button/button';
 import { AnswersContainerStyled, QuestionContainerStyled, QuestionStyled } from './question-styles';
-import { mapAnswers, replaceHtmlQuoteAttribute } from './utils';
+import { mapAnswers } from './utils';
 
 interface QuestionProps {
   question: QuestionType;
@@ -13,7 +14,7 @@ interface QuestionProps {
 export const Question: React.FC<QuestionProps> = ({ question, onAnswer }) => (
   <QuestionStyled>
     <QuestionContainerStyled>
-      <HeadingStyled size={22}>{replaceHtmlQuoteAttribute(question.question)}</HeadingStyled>
+      <HeadingStyled size={22}>{parse(question.question)}</HeadingStyled>
     </QuestionContainerStyled>
 
     <AnswersContainerStyled>
@@ -22,7 +23,7 @@ export const Question: React.FC<QuestionProps> = ({ question, onAnswer }) => (
           key={a.answer + a.correct}
           onClick={() => onAnswer(a)}
           kind="secondary"
-        >{a.answer}
+        >{parse(a.answer)}
         </Button>
       ))}
     </AnswersContainerStyled>
