@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { createGenericContext, useQueryParams } from '../../utils';
 import { GameState, QuestionDifficulty } from '../../global/types';
-import { Loader } from '../loader/loader';
-import { ShouldRender } from '../should-render/should-render';
+import { Loader } from '../../packages/loader/loader';
+import { ShouldRender } from '../../packages/should-render/should-render';
 import { DesktopCard } from '../welcome/welcome-styles';
 import { useQuestions } from './use-game';
 import { Questions } from './components/questions/questions';

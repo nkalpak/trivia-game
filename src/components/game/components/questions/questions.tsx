@@ -4,7 +4,7 @@ import { Question } from '../question/question';
 import { AnswerCorrect } from '../answer-correct/answer-correct';
 import { AnswerIncorrect } from '../answer-incorrect/answer-incorrect';
 import { useGameContext } from '../../game';
-import { ShouldRender } from '../../../should-render/should-render';
+import { ShouldRender } from '../../../../packages/should-render/should-render';
 
 interface QuestionsProps {
   questions?: QuestionType[];

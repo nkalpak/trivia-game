@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Limelight } from '../../../limelight/limelight';
+import { Limelight } from '../../../../packages/limelight/limelight';
 import { ThumbsDown } from '../../../../assets/icons/thumbs-down/thumbs-down';
 import { useGameContext } from '../../game';
 

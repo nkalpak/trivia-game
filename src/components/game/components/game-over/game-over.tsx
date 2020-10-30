@@ -1,6 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { Limelight } from '../../../limelight/limelight';
+import { Limelight } from '../../../../packages/limelight/limelight';
 import { HeadingStyled } from '../../../app/app-styles';
 import { Button } from '../../../button/button';
 import { Repeat } from '../../../../assets/icons/repeat/repeat';

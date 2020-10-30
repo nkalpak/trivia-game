@@ -1,5 +1,5 @@
 import React from 'react';
-import { Limelight } from '../../../limelight/limelight';
+import { Limelight } from '../../../../packages/limelight/limelight';
 import { ThumbsUp } from '../../../../assets/icons/thumbs-up/thumbs-up';
 import { Button } from '../../../button/button';
 import { Arrow } from '../../../../assets/icons/arrow/arrow';
