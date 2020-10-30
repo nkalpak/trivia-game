@@ -1,15 +1,10 @@
 /* eslint-disable max-len */
 import React from 'react';
 
-interface RepeatProps {
-  width?: number;
-  height?: number;
-}
-
-export const Repeat = ({ width, height }: RepeatProps) => (
+export const Repeat = () => (
   <svg
-    width={width ?? 40}
-    height={height ?? 46}
+    width="40"
+    height="46"
     viewBox="0 0 40 46"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
