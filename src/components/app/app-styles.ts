@@ -23,10 +23,3 @@ export const HeadingStyled = styled.h1<HeadingStyledProps>`
   text-shadow: 0 4px 15px black;
   font-size: ${props => `${props.size}px`};
 `;
-
-type TextStyledProps = HeadingStyledProps;
-
-export const TextStyled = styled.p<TextStyledProps>`
-  color: white;
-  font-size: ${props => `${props.size}px`};
-`;
