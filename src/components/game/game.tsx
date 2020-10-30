@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { createGenericContext, useQueryParams } from '../../utils';
-import { GameState, QuestionDifficulty } from '../../global/types';
+import { GameState, QuestionDifficulty } from '../../global';
 import { Loader } from '../../packages/loader/loader';
 import { ShouldRender } from '../../packages/should-render/should-render';
 import { DesktopCard } from '../welcome/welcome-styles';

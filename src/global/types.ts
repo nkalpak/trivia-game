@@ -15,4 +15,4 @@ export interface AnswerType {
   correct: boolean;
 }
 
-export type GameState = 'playing' | 'win' | 'lose' | 'pending';
+export type GameState = 'playing' | 'win' | 'lose';
