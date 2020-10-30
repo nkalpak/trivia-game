@@ -41,12 +41,17 @@ export const ButtonStyled = styled.button<ButtonStyledProps>`
   }
 `;
 
-export const IconLeftStyled = styled.span`
+export const IconStyled = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
+`;
+
+export const IconLeftStyled = styled(IconStyled)`
   left: 20px;
 `;
 
-export const IconRightStyled = styled.span`
-  position: absolute;
+export const IconRightStyled = styled(IconStyled)`
   right: 20px;
 `;

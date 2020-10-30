@@ -21,7 +21,9 @@ export const GameOver = () => {
     <GameOverStyled>
       <HeadingStyled>{gameOverText(state)}</HeadingStyled>
 
-      <Limelight><HeadingStyled size={150}>{score}</HeadingStyled></Limelight>
+      <Limelight>
+        <HeadingStyled size={150}>{score}</HeadingStyled>
+      </Limelight>
 
       <Button
         onClick={() => history.replace('/')}
