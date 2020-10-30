@@ -1,13 +1,8 @@
 import React from 'react';
+import { ContainerStyled } from './app-styles';
 
-interface AppProps {
-
-}
-
-export const App: React.FC<AppProps> = () => {
-  return (
-    <div>
-      App
-    </div>
-  );
-};
+export const App = () => (
+  <ContainerStyled>
+    <h1>Hello</h1>
+  </ContainerStyled>
+);
