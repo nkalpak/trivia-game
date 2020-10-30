@@ -3,6 +3,7 @@ import { AnswerType, QuestionType } from '../../../../global/types';
 import { Question } from '../question/question';
 import { AnswerCorrect } from '../answer-correct/answer-correct';
 import { AnswerIncorrect } from '../answer-incorrect/answer-incorrect';
+import { useGameContext } from '../../game';
 
 interface QuestionsProps {
   questions?: QuestionType[];
@@ -13,6 +14,8 @@ export const Questions: React.FC<QuestionsProps> = ({ questions }) => {
   const [lastAnswer, setLastAnswer] = useState<AnswerType>();
   const [showMiddleScreen, setShowMiddleScreen] = useState(false);
 
+  const { setScore, setState } = useGameContext();
+
   const handleAnswer = (answer: AnswerType) => {
     setLastAnswer(answer);
     setCurrentQuestionIndex(i => i + 1);
@@ -20,9 +23,13 @@ export const Questions: React.FC<QuestionsProps> = ({ questions }) => {
   };
 
   const handleCorrect = () => {
-    setShowMiddleScreen(false);
-  };
-  const handleIncorrect = () => {
+    if (!questions) return;
+
+    if (currentQuestionIndex >= questions.length - 1) {
+      setState('win');
+    }
+
+    setScore(s => s + 1);
     setShowMiddleScreen(false);
   };
 
@@ -36,7 +43,7 @@ export const Questions: React.FC<QuestionsProps> = ({ questions }) => {
       )}
 
       {showMiddleScreen && lastAnswer?.correct && <AnswerCorrect onClick={handleCorrect} />}
-      {showMiddleScreen && !lastAnswer?.correct && <AnswerIncorrect onClick={handleIncorrect} />}
+      {showMiddleScreen && !lastAnswer?.correct && <AnswerIncorrect />}
     </div>
   );
 };

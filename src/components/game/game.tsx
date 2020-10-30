@@ -5,12 +5,13 @@ import { Loader } from '../loader/loader';
 import { ShouldRender } from '../should-render/should-render';
 import { useQuestions } from './use-game';
 import { Questions } from './components/questions/questions';
+import { GameOver } from './components/game-over/game-over';
 
 interface GameContextType {
   score: number;
   state: GameState;
-  setScore: (s: number) => void;
-  setState: (s: GameState) => void;
+  setScore: React.Dispatch<React.SetStateAction<number>>;
+  setState: React.Dispatch<React.SetStateAction<GameState>>;
 }
 export const [useGameContext, GameContextProvider] = createGenericContext<GameContextType>();
 
@@ -30,6 +31,9 @@ export const Game = () => {
 
   return (
     <GameContextProvider value={value}>
+      <ShouldRender condition={state === 'lose' || state === 'win'}>
+        <GameOver />
+      </ShouldRender>
 
       <ShouldRender condition={state === 'playing'}>
         {isLoading && <Loader text="Getting your questions..." />}

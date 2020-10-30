@@ -1,20 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Limelight } from '../../../limelight/limelight';
-import { Button } from '../../../button/button';
-import { Arrow } from '../../../../assets/icons/arrow/arrow';
 import { ThumbsDown } from '../../../../assets/icons/thumbs-down/thumbs-down';
+import { useGameContext } from '../../game';
 
-interface AnswerIncorrectProps {
-  onClick: React.MouseEventHandler;
-}
+export const AnswerIncorrect = () => {
+  const { setState } = useGameContext();
 
-export const AnswerIncorrect: React.FC<AnswerIncorrectProps> = ({ onClick }) => (
-  <div>
+  useEffect(() => {
+    const id = setTimeout(() => setState('lose'), 1000);
+
+    return () => clearTimeout(id);
+  }, [setState]);
+
+  return (
     <Limelight><ThumbsDown /></Limelight>
-    <Button
-      onClick={onClick}
-      iconEnd={<Arrow />}
-    >Next
-    </Button>
-  </div>
-);
+  );
+};
