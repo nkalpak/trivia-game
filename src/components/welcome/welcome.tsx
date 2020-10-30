@@ -4,24 +4,20 @@ import { HeadingStyled } from '../app/app-styles';
 import { Button } from '../button/button';
 import { Star } from '../../assets/icons/star/star';
 import { QuestionDifficulty } from '../../global/types';
+import { createUri } from '../../utils';
+import { ButtonGroupStyled } from './welcome-styles';
 
 export const Welcome = () => {
   const [selectedDifficulty, setSelectedDifficulty] = useState<QuestionDifficulty>('easy');
   const history = useHistory();
 
-  // eslint-disable-next-line consistent-return
   const mapDifficultyText = (difficulty: QuestionDifficulty) => {
-    // eslint-disable-next-line default-case
     switch (difficulty) {
       case 'easy': return 'Go easy on me';
       case 'medium': return 'Bring it on';
       case 'hard': return 'Insanity mode';
+      default: return '';
     }
-  };
-
-  const getButtonIcon = (difficulty: QuestionDifficulty) => {
-    if (difficulty === selectedDifficulty) return <Star />;
-    return null;
   };
 
   const difficulties: QuestionDifficulty[] = ['easy', 'medium', 'hard'];
@@ -31,23 +27,24 @@ export const Welcome = () => {
       <HeadingStyled size={50}>TriviaTime</HeadingStyled>
       <HeadingStyled size={25}>Pick your level of difficulty</HeadingStyled>
 
-      <div>
+      <ButtonGroupStyled>
         {difficulties.map((d, i) => (
           <Button
             key={d + i}
             kind="secondary"
-            iconStart={getButtonIcon(d)}
+            iconStart={d === selectedDifficulty ? <Star /> : null}
             onClick={() => setSelectedDifficulty(d)}
           >
             {mapDifficultyText(d)}
           </Button>
         ))}
+
         <Button
-          onClick={() => history.push(`/play?difficulty=${selectedDifficulty}`)}
+          onClick={() => history.push(createUri(['play'], { difficulty: selectedDifficulty }))}
           kind="primary"
         >Play Now
         </Button>
-      </div>
+      </ButtonGroupStyled>
     </>
   );
 };

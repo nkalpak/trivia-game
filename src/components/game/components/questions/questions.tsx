@@ -4,6 +4,7 @@ import { Question } from '../question/question';
 import { AnswerCorrect } from '../answer-correct/answer-correct';
 import { AnswerIncorrect } from '../answer-incorrect/answer-incorrect';
 import { useGameContext } from '../../game';
+import { ShouldRender } from '../../../should-render/should-render';
 
 interface QuestionsProps {
   questions?: QuestionType[];
@@ -42,8 +43,17 @@ export const Questions: React.FC<QuestionsProps> = ({ questions }) => {
       />
       )}
 
-      {showMiddleScreen && lastAnswer?.correct && <AnswerCorrect onClick={handleCorrect} />}
-      {showMiddleScreen && !lastAnswer?.correct && <AnswerIncorrect />}
+      <ShouldRender condition={showMiddleScreen}>
+        <>
+          <ShouldRender condition={!!lastAnswer?.correct}>
+            <AnswerCorrect onClick={handleCorrect} />
+          </ShouldRender>
+
+          <ShouldRender condition={!lastAnswer?.correct}>
+            <AnswerIncorrect />
+          </ShouldRender>
+        </>
+      </ShouldRender>
     </div>
   );
 };

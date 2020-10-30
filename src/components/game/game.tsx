@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Dispatch, SetStateAction, useState } from 'react';
 import { createGenericContext, useQueryParams } from '../../utils';
 import { GameState, QuestionDifficulty } from '../../global/types';
 import { Loader } from '../loader/loader';
@@ -10,8 +10,8 @@ import { GameOver } from './components/game-over/game-over';
 interface GameContextType {
   score: number;
   state: GameState;
-  setScore: React.Dispatch<React.SetStateAction<number>>;
-  setState: React.Dispatch<React.SetStateAction<GameState>>;
+  setScore: Dispatch<SetStateAction<number>>;
+  setState: Dispatch<SetStateAction<GameState>>;
 }
 export const [useGameContext, GameContextProvider] = createGenericContext<GameContextType>();
 
