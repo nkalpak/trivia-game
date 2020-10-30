@@ -26,7 +26,7 @@ export const GameOver = () => {
       <Button
         onClick={() => history.replace('/')}
         iconEnd={<Repeat />}
-      >Again
+      >Play Again
       </Button>
     </GameOverStyled>
   );
