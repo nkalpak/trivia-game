@@ -6,7 +6,7 @@ import { HeadingStyled } from '../../../app/app-styles';
 import { Button } from '../../../button/button';
 import { Repeat } from '../../../../assets/icons/repeat/repeat';
 import { useGameContext } from '../../game';
-import { GameOverStyled } from './game-over-styled';
+import { GameOverStyled, LimelightWrapperStyled } from './game-over-styled';
 
 export const GameOver = () => {
   const { score, state } = useGameContext();
@@ -19,11 +19,13 @@ export const GameOver = () => {
 
   return (
     <GameOverStyled>
-      <HeadingStyled>{gameOverText(state)}</HeadingStyled>
+      <HeadingStyled size={25}>{gameOverText(state)}</HeadingStyled>
 
-      <Limelight>
-        <HeadingStyled size={150}>{score}</HeadingStyled>
-      </Limelight>
+      <LimelightWrapperStyled>
+        <Limelight>
+          <HeadingStyled size={150}>{score}</HeadingStyled>
+        </Limelight>
+      </LimelightWrapperStyled>
 
       <Button
         onClick={() => history.replace('/')}

@@ -33,6 +33,7 @@ export const ButtonStyled = styled.button<ButtonStyledProps>`
   outline: none;
   
   border: none;
+  cursor: pointer;
   background: ${getBackground};
   box-shadow: ${getBoxShadow};
   

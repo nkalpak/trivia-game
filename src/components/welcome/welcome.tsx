@@ -5,7 +5,7 @@ import { Button } from '../button/button';
 import { Star } from '../../assets/icons/star/star';
 import { QuestionDifficulty } from '../../global/types';
 import { createUri } from '../../utils';
-import { ButtonGroupStyled } from './welcome-styles';
+import { ButtonGroupStyled, DesktopCard, DifficultyTextStyled, WelcomeStyled } from './welcome-styles';
 
 export const Welcome = () => {
   const [selectedDifficulty, setSelectedDifficulty] = useState<QuestionDifficulty>('easy');
@@ -23,28 +23,35 @@ export const Welcome = () => {
   const difficulties: QuestionDifficulty[] = ['easy', 'medium', 'hard'];
 
   return (
-    <>
-      <HeadingStyled size={50}>TriviaTime</HeadingStyled>
-      <HeadingStyled size={25}>Pick your level of difficulty</HeadingStyled>
+    <DesktopCard>
+      <WelcomeStyled>
+        <HeadingStyled size={50}>TriviaTime</HeadingStyled>
+        <DifficultyTextStyled>
+          <HeadingStyled
+            size={25}
+          >Pick your level of difficulty
+          </HeadingStyled>
+        </DifficultyTextStyled>
 
-      <ButtonGroupStyled>
-        {difficulties.map((d, i) => (
+        <ButtonGroupStyled>
+          {difficulties.map((d, i) => (
+            <Button
+              key={d + i}
+              kind="secondary"
+              iconStart={d === selectedDifficulty ? <Star /> : null}
+              onClick={() => setSelectedDifficulty(d)}
+            >
+              {mapDifficultyText(d)}
+            </Button>
+          ))}
+
           <Button
-            key={d + i}
-            kind="secondary"
-            iconStart={d === selectedDifficulty ? <Star /> : null}
-            onClick={() => setSelectedDifficulty(d)}
-          >
-            {mapDifficultyText(d)}
+            onClick={() => history.push(createUri(['play'], { difficulty: selectedDifficulty }))}
+            kind="primary"
+          >Play Now
           </Button>
-        ))}
-
-        <Button
-          onClick={() => history.push(createUri(['play'], { difficulty: selectedDifficulty }))}
-          kind="primary"
-        >Play Now
-        </Button>
-      </ButtonGroupStyled>
-    </>
+        </ButtonGroupStyled>
+      </WelcomeStyled>
+    </DesktopCard>
   );
 };

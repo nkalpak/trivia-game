@@ -13,14 +13,14 @@ interface QuestionsProps {
 export const Questions: React.FC<QuestionsProps> = ({ questions }) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [lastAnswer, setLastAnswer] = useState<AnswerType>();
-  const [showMiddleScreen, setShowMiddleScreen] = useState(false);
+  const [showPendingScreen, setShowPendingScreen] = useState(false);
 
   const { setScore, setState } = useGameContext();
 
   const handleAnswer = (answer: AnswerType) => {
     setLastAnswer(answer);
     setCurrentQuestionIndex(i => i + 1);
-    setShowMiddleScreen(true);
+    setShowPendingScreen(true);
   };
 
   const handleCorrect = () => {
@@ -31,19 +31,19 @@ export const Questions: React.FC<QuestionsProps> = ({ questions }) => {
     }
 
     setScore(s => s + 1);
-    setShowMiddleScreen(false);
+    setShowPendingScreen(false);
   };
 
   return (
-    <div>
-      {questions && !showMiddleScreen && (
+    <>
+      {questions && !showPendingScreen && (
       <Question
         question={questions[currentQuestionIndex]}
         onAnswer={handleAnswer}
       />
       )}
 
-      <ShouldRender condition={showMiddleScreen}>
+      <ShouldRender condition={showPendingScreen}>
         <>
           <ShouldRender condition={!!lastAnswer?.correct}>
             <AnswerCorrect onClick={handleCorrect} />
@@ -54,6 +54,6 @@ export const Questions: React.FC<QuestionsProps> = ({ questions }) => {
           </ShouldRender>
         </>
       </ShouldRender>
-    </div>
+    </>
   );
 };

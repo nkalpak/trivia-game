@@ -13,12 +13,13 @@ export const useQuestions = (difficulty: QuestionDifficulty) => {
     },
   });
 
-  const { refetch, data, isLoading, error } = useQuery('questions', getQuestions);
+  const { refetch, data, isLoading, isFetching, error } = useQuery('questions', getQuestions);
 
   return {
     refetch,
     data: data?.data.results as QuestionType[],
     isLoading,
+    isFetching,
     error,
   };
 };
