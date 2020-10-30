@@ -7,5 +7,3 @@ export const mapAnswers = (question: QuestionType): AnswerType[] => {
 
   return shuffle([...incorrect, correct]);
 };
-
-export const replaceHtmlQuoteAttribute = (q: string) => q.replaceAll('&quot;', '"');
