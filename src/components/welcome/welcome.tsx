@@ -5,8 +5,8 @@ import { Button } from '../button/button';
 import { Star } from '../../assets/icons/star/star';
 import { QuestionDifficulty } from '../game/components/question';
 import { createUri } from '../../utils';
-import { Routing } from '../../global';
-import { ButtonGroupStyled, DesktopCard, DifficultyTextStyled, WelcomeStyled } from './welcome-styles';
+import { Routing, DesktopCard } from '../../global';
+import { ButtonGroupStyled, DifficultyTextStyled, WelcomeStyled } from './welcome-styles';
 
 export const Welcome = () => {
   const [selectedDifficulty, setSelectedDifficulty] = useState<QuestionDifficulty>('easy');

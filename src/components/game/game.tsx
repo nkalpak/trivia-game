@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { createGenericContext, useQueryParams } from '../../utils';
 import { Loader } from '../../packages/loader/loader';
 import { ShouldRender } from '../../packages/should-render/should-render';
-import { DesktopCard } from '../welcome/welcome-styles';
+import { DesktopCard } from '../../global';
 import { QuestionDifficulty } from './components/question';
 import { useQuestions } from './use-game';
 import { Questions } from './components/questions/questions';
