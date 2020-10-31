@@ -1,6 +1,6 @@
 ## Trivia game application
 
-## [Live Demo](https://heuristic-jones-5d59a6.netlify.app)
+## [Live Demo](https://agitated-wright-ef2a46.netlify.app/)
 
 #### Project Setup
 1. Run `yarn install`
