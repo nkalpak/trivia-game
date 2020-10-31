@@ -8,10 +8,8 @@ export const Button: React.FC<ButtonProps> = ({
   iconStart,
   kind = 'primary',
   onClick,
-  disabled,
 }) => (
   <ButtonStyled
-    disabled={disabled}
     kind={kind}
     onClick={onClick}
   >

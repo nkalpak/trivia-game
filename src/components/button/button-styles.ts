@@ -25,7 +25,7 @@ export const ButtonStyled = styled.button<ButtonStyledProps>`
   border-radius: 999px;
   
   font-size: 20px;
-  font-family: 'Monserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 900;
   color: white;
   
@@ -36,10 +36,6 @@ export const ButtonStyled = styled.button<ButtonStyledProps>`
   cursor: pointer;
   background: ${getBackground};
   box-shadow: ${getBoxShadow};
-  
-  &:disabled {
-    cursor: not-allowed;
-  }
 `;
 
 export const IconStyled = styled.span`

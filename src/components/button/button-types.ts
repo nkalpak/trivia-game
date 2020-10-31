@@ -7,5 +7,4 @@ export interface ButtonProps {
   iconEnd?: React.ReactNode;
   kind?: ButtonKind;
   onClick?: React.MouseEventHandler;
-  disabled?: boolean;
 }
