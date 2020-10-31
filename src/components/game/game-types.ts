@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction } from 'react';
-import { GameState } from '../../global';
+
+export type GameState = 'playing' | 'win' | 'lose';
 
 export interface GameContextType {
   score: number;

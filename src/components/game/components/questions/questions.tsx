@@ -1,5 +1,5 @@
 import React, { useReducer } from 'react';
-import { AnswerType, QuestionType } from '../../../../global';
+import { AnswerType, QuestionType } from '../question';
 import { Question } from '../question/question';
 import { AnswerCorrect } from '../answer-correct/answer-correct';
 import { AnswerIncorrect } from '../answer-incorrect/answer-incorrect';

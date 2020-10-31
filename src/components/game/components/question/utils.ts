@@ -1,5 +1,5 @@
-import { AnswerType, QuestionType } from '../../../../global/types';
 import { shuffle } from '../../../../utils/shuffle';
+import { AnswerType, QuestionType } from '.';
 
 export const mapAnswers = (question: QuestionType): AnswerType[] => {
   const incorrect = question.incorrect_answers.map(a => ({ answer: a, correct: false }));

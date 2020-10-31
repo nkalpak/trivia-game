@@ -1,4 +1,4 @@
-import { AnswerType } from '../../global';
+import { AnswerType } from './components/question';
 
 interface QuestionsState {
   currentQuestionIndex: number;

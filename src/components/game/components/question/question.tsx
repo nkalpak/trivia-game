@@ -1,10 +1,10 @@
 import React from 'react';
 import parse from 'html-react-parser';
-import { AnswerType, QuestionType } from '../../../../global/types';
 import { HeadingStyled } from '../../../app/app-styles';
 import { Button } from '../../../button/button';
 import { AnswersContainerStyled, QuestionContainerStyled, QuestionStyled } from './question-styles';
 import { mapAnswers } from './utils';
+import { AnswerType, QuestionType } from '.';
 
 interface QuestionProps {
   question: QuestionType;

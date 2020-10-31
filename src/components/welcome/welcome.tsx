@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { HeadingStyled } from '../app/app-styles';
 import { Button } from '../button/button';
 import { Star } from '../../assets/icons/star/star';
-import { QuestionDifficulty } from '../../global/types';
+import { QuestionDifficulty } from '../game/components/question';
 import { createUri } from '../../utils';
 import { ButtonGroupStyled, DesktopCard, DifficultyTextStyled, WelcomeStyled } from './welcome-styles';
 
