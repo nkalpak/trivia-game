@@ -3,12 +3,12 @@ import parse from 'html-react-parser';
 import { HeadingStyled } from '../../../app/app-styles';
 import { Button } from '../../../button/button';
 import { AnswersContainerStyled, QuestionContainerStyled, QuestionStyled } from './question-styles';
-import { mapAnswers } from './utils';
-import { AnswerType, QuestionType } from '.';
+import { mapAnswers } from './question-utils';
+import { AnswerSelectedFunction, QuestionType } from '.';
 
 interface QuestionProps {
   question: QuestionType;
-  onAnswer: (a: AnswerType) => void;
+  onAnswer: AnswerSelectedFunction
 }
 
 export const Question: React.FC<QuestionProps> = ({ question, onAnswer }) => (

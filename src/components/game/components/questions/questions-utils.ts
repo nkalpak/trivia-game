@@ -1,14 +1,4 @@
-import { AnswerType } from './components/question';
-
-interface QuestionsState {
-  currentQuestionIndex: number;
-  latestAnswer?: AnswerType;
-  showPendingScreen: boolean;
-}
-
-type QuestionsActionType =
-  | { type: 'answer', payload: AnswerType }
-  | { type: 'next_question' }
+import { QuestionsActionType, QuestionsReducerState } from './questions-types';
 
 export const questionsInitialState = {
   currentQuestionIndex: 0,
@@ -16,7 +6,7 @@ export const questionsInitialState = {
   showPendingScreen: false,
 };
 
-export const questionsReducer = (state: QuestionsState, action: QuestionsActionType): QuestionsState => {
+export const questionsReducer = (state: QuestionsReducerState, action: QuestionsActionType): QuestionsReducerState => {
   switch (action.type) {
     case 'answer': return {
       currentQuestionIndex: state.currentQuestionIndex + 1,
