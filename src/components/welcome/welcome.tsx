@@ -5,6 +5,7 @@ import { Button } from '../button/button';
 import { Star } from '../../assets/icons/star/star';
 import { QuestionDifficulty } from '../game/components/question';
 import { createUri } from '../../utils';
+import { Routing } from '../../global';
 import { ButtonGroupStyled, DesktopCard, DifficultyTextStyled, WelcomeStyled } from './welcome-styles';
 
 export const Welcome = () => {
@@ -18,6 +19,12 @@ export const Welcome = () => {
       case 'hard': return 'Insanity mode';
       default: return '';
     }
+  };
+
+  const handleStartGame = () => {
+    history.push(
+      createUri([Routing.Pages.Play], { difficulty: selectedDifficulty }),
+    );
   };
 
   const difficulties: QuestionDifficulty[] = ['easy', 'medium', 'hard'];
@@ -46,7 +53,7 @@ export const Welcome = () => {
           ))}
 
           <Button
-            onClick={() => history.push(createUri(['play'], { difficulty: selectedDifficulty }))}
+            onClick={handleStartGame}
             kind="primary"
           >Play Now
           </Button>

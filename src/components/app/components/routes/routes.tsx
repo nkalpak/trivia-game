@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { PlayPage, RootPage } from '../../../../routes';
+import { Routing } from '../../../../global';
 
 export const Routes = () => (
   <BrowserRouter>
@@ -8,12 +9,12 @@ export const Routes = () => (
 
       <Route
         exact
-        path="/"
+        path={Routing.Pages.Welcome}
         component={RootPage}
       />
 
       <Route
-        path="/play"
+        path={Routing.Pages.Play}
         component={PlayPage}
       />
 
