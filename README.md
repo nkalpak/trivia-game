@@ -14,7 +14,8 @@
 - `global` -- resources that will be used by many components *(types, routes, styled components, etc.)*
 - `packages` -- components that can be exported to a different project *(have little or no business logic)*
 - `utils` -- utility functions to avoid re-writing logic
-
+- `routes` -- components that are provided to React Router's `route` prop, they serve to provide easy discovery of the project's different pages 
+ 
 #### Conventions
 - Uses typescript with strict rules and no `any`
 - Uses only functional components with hooks

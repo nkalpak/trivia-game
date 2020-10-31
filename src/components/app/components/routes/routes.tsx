@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { PlayPage, RootPage } from '../../../../pages';
+import { PlayPage, RootPage } from '../../../../routes';
 
 export const Routes = () => (
   <BrowserRouter>
