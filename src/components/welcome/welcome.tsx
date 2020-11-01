@@ -23,7 +23,7 @@ export const Welcome = () => {
 
   const handleStartGame = () => {
     history.push(
-      createUri([Routing.Pages.Play], { difficulty: selectedDifficulty }),
+      createUri([Routing.Play.Default], { difficulty: selectedDifficulty }),
     );
   };
 

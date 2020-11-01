@@ -12,6 +12,7 @@ export const QuestionStyled = styled.div`
 export const QuestionContainerStyled = styled.div`
   min-height: 100px;
   height: 100%;
+  width: 100%;
   
   margin-bottom: 16px;
 `;

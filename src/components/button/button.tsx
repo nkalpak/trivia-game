@@ -9,14 +9,16 @@ export const Button: React.FC<ButtonProps> = ({
   kind = 'primary',
   onClick,
 }) => (
-  <ButtonStyled
-    kind={kind}
-    onClick={onClick}
-  >
-    <>
-      {iconStart && <IconLeftStyled>{iconStart}</IconLeftStyled>}
-      {children}
-      {iconEnd && <IconRightStyled>{iconEnd}</IconRightStyled>}
-    </>
-  </ButtonStyled>
+  <>
+    <ButtonStyled
+      kind={kind}
+      onClick={onClick}
+    >
+      <>
+        {iconStart && <IconLeftStyled>{iconStart}</IconLeftStyled>}
+        {children}
+        {iconEnd && <IconRightStyled>{iconEnd}</IconRightStyled>}
+      </>
+    </ButtonStyled>
+  </>
 );

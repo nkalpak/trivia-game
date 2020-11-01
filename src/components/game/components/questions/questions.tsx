@@ -37,14 +37,12 @@ export const Questions: React.FC<QuestionsProps> = ({ questions }) => {
 
   return (
     <>
-      {questions && (
-        <ShouldRender condition={!showPendingScreen}>
-          <Question
-            question={questions[currentQuestionIndex]}
-            onAnswer={handleAnswer}
-          />
-        </ShouldRender>
-      )}
+      <ShouldRender condition={!showPendingScreen}>
+        <Question
+          question={questions?.[currentQuestionIndex]}
+          onAnswer={handleAnswer}
+        />
+      </ShouldRender>
 
       <ShouldRender condition={showPendingScreen}>
         <>

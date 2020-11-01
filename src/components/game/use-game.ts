@@ -13,14 +13,12 @@ export const useQuestions = (difficulty: QuestionDifficulty) => {
     },
   });
 
-  const { refetch, data, isLoading, isFetching, error } = useQuery('questions', getQuestions, {
+  const { data, isFetching, error } = useQuery('questions', getQuestions, {
     refetchOnWindowFocus: false,
   });
 
   return {
-    refetch,
-    data: data?.data.results as QuestionType[],
-    isLoading,
+    questions: data?.data.results as QuestionType[],
     isFetching,
     error,
   };

@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { createGenericContext, useQueryParams } from '../../utils';
-import { Loader } from '../../packages/loader/loader';
 import { ShouldRender } from '../../packages/should-render/should-render';
-import { DesktopCard } from '../../global';
+import { DesktopCard, Routing } from '../../global';
 import { QuestionDifficulty } from './components/question';
 import { useQuestions } from './use-game';
 import { Questions } from './components/questions/questions';
@@ -13,7 +12,7 @@ export const [useGameContext, GameContextProvider] = createGenericContext<GameCo
 
 export const Game = () => {
   const queryParams = useQueryParams();
-  const { data: questions, isFetching } = useQuestions(queryParams.get('difficulty') as QuestionDifficulty);
+  const { questions } = useQuestions(queryParams.get(Routing.Play.Params.difficulty) as QuestionDifficulty);
 
   const [score, setScore] = useState(0);
   const [state, setState] = useState<GameState>('playing');
@@ -28,19 +27,13 @@ export const Game = () => {
   return (
     <DesktopCard>
       <GameContextProvider value={value}>
-        {isFetching ? (
-          <Loader text="Getting your questions..." />
-        ) : (
-          <>
-            <ShouldRender condition={state === 'lose' || state === 'win'}>
-              <GameOver />
-            </ShouldRender>
+        <ShouldRender condition={state === 'lose' || state === 'win'}>
+          <GameOver />
+        </ShouldRender>
 
-            <ShouldRender condition={!isFetching && state === 'playing'}>
-              <Questions questions={questions} />
-            </ShouldRender>
-          </>
-        )}
+        <ShouldRender condition={state === 'playing'}>
+          <Questions questions={questions} />
+        </ShouldRender>
       </GameContextProvider>
     </DesktopCard>
   );

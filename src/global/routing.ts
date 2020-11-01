@@ -1,8 +1,11 @@
-const Pages = {
-  Welcome: '/',
-  Play: '/play',
+const Play = {
+  Default: '/play',
+  Params: {
+    difficulty: 'difficulty',
+  },
 };
 
 export const Routing = {
-  Pages,
+  Welcome: '/',
+  Play,
 };

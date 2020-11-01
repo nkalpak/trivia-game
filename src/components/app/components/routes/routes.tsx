@@ -9,12 +9,12 @@ export const Routes = () => (
 
       <Route
         exact
-        path={Routing.Pages.Welcome}
+        path={Routing.Welcome}
         component={RootPage}
       />
 
       <Route
-        path={Routing.Pages.Play}
+        path={Routing.Play.Default}
         component={PlayPage}
       />
 
