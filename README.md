@@ -1,6 +1,6 @@
 ## Trivia game application
 
-## [Live Demo](https://agitated-wright-ef2a46.netlify.app/)
+## [Live Demo](https://ecstatic-kirch-2da2dd.netlify.app/)
 
 #### Project Setup
 1. Run `yarn install`
