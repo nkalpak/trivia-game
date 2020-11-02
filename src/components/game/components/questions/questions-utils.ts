@@ -1,4 +1,4 @@
-import { QuestionsActionType, QuestionsReducerState } from './questions-types';
+import { QuestionsReducerAction, QuestionsReducerState } from './questions-types';
 
 export const questionsInitialState = {
   currentQuestionIndex: 0,
@@ -6,7 +6,10 @@ export const questionsInitialState = {
   showPendingScreen: false,
 };
 
-export const questionsReducer = (state: QuestionsReducerState, action: QuestionsActionType): QuestionsReducerState => {
+export const questionsReducer = (
+  state: QuestionsReducerState,
+  action: QuestionsReducerAction,
+): QuestionsReducerState => {
   switch (action.type) {
     case 'answer': return {
       currentQuestionIndex: state.currentQuestionIndex + 1,

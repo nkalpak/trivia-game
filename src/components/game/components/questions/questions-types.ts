@@ -6,6 +6,6 @@ export interface QuestionsReducerState {
   showPendingScreen: boolean;
 }
 
-export type QuestionsActionType =
+export type QuestionsReducerAction =
   | { type: 'answer', payload: AnswerType }
   | { type: 'next_question' }
