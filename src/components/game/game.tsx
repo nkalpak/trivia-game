@@ -6,9 +6,9 @@ import { QuestionDifficulty } from './components/question';
 import { useQuestions } from './use-game';
 import { Questions } from './components/questions/questions';
 import { GameOver } from './components/game-over/game-over';
-import { GameState, GameContextType } from './game-types';
+import { GameState, GameContextInterface } from './game-types';
 
-export const [useGameContext, GameContextProvider] = createGenericContext<GameContextType>();
+export const [useGameContext, GameContextProvider] = createGenericContext<GameContextInterface>();
 
 export const Game = () => {
   const queryParams = useQueryParams();
