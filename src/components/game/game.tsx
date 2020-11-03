@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { createGenericContext, useQueryParams } from '../../utils';
 import { ShouldRender } from '../../packages/should-render/should-render';
 import { DesktopCard, Routing } from '../../global';
@@ -17,11 +18,14 @@ export const Game = () => {
   const [score, setScore] = useState(0);
   const [state, setState] = useState<GameState>('playing');
 
+  const history = useHistory();
+
   const value = {
     score,
     state,
     setScore,
     setState,
+    restartGame: () => history.replace(Routing.Welcome),
   };
 
   return (

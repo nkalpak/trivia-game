@@ -45,15 +45,13 @@ export const Questions: React.FC<QuestionsProps> = ({ questions }) => {
       </ShouldRender>
 
       <ShouldRender condition={showPendingScreen}>
-        <>
-          <ShouldRender condition={!!latestAnswer?.correct}>
-            <AnswerCorrect onClick={handleCorrect} />
-          </ShouldRender>
+        <ShouldRender condition={!!latestAnswer?.correct}>
+          <AnswerCorrect onClick={handleCorrect} />
+        </ShouldRender>
 
-          <ShouldRender condition={!latestAnswer?.correct}>
-            <AnswerIncorrect />
-          </ShouldRender>
-        </>
+        <ShouldRender condition={!latestAnswer?.correct}>
+          <AnswerIncorrect />
+        </ShouldRender>
       </ShouldRender>
     </>
   );

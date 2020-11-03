@@ -7,4 +7,5 @@ export interface GameContextInterface {
   state: GameState;
   setScore: Dispatch<SetStateAction<number>>;
   setState: Dispatch<SetStateAction<GameState>>;
+  restartGame: () => void;
 }

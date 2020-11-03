@@ -1,16 +1,13 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
 import { Limelight } from '../../../../packages/limelight/limelight';
 import { HeadingStyled } from '../../../app/app-styles';
 import { Button } from '../../../button/button';
 import { Repeat } from '../../../../assets/icons/repeat/repeat';
 import { useGameContext } from '../../game';
-import { Routing } from '../../../../global';
 import { GameOverStyled, LimelightWrapperStyled } from './game-over-styles';
 
 export const GameOver = () => {
-  const { score, state } = useGameContext();
-  const history = useHistory();
+  const { score, state, restartGame } = useGameContext();
 
   return (
     <GameOverStyled>
@@ -25,7 +22,7 @@ export const GameOver = () => {
       </LimelightWrapperStyled>
 
       <Button
-        onClick={() => history.replace(Routing.Welcome)}
+        onClick={restartGame}
         iconEnd={<Repeat />}
       >Play Again
       </Button>
