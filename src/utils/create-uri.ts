@@ -10,10 +10,10 @@ const getParamString = (params: Record<string, string>) => {
 
   let result = formatParam(firstParamName, params[firstParamName], true);
   for (let i = 1; i < paramNames.length; i++) {
-    const currentParamName = paramNames[i];
-    const currentParamValue = params[currentParamName];
+    const paramName = paramNames[i];
+    const paramValue = params[paramName];
 
-    result = `${result}${formatParam(currentParamName, currentParamValue)}`;
+    result = `${result}${formatParam(paramName, paramValue)}`;
   }
 
   return result;
@@ -28,8 +28,8 @@ const getPathString = (paths: string[]) => {
   if (paths.length === 0) return null;
 
   let result = '';
-  for (let i = 0; i < paths.length; i++) {
-    result = `${result}/${formatPath(paths[i])}`;
+  for (const path of paths) {
+    result = `${result}/${formatPath(path)}`;
   }
 
   return result;

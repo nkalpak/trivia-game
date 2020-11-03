@@ -5,6 +5,7 @@ import { HeadingStyled } from '../../../app/app-styles';
 import { Button } from '../../../button/button';
 import { Repeat } from '../../../../assets/icons/repeat/repeat';
 import { useGameContext } from '../../game';
+import { Routing } from '../../../../global';
 import { GameOverStyled, LimelightWrapperStyled } from './game-over-styles';
 
 export const GameOver = () => {
@@ -24,7 +25,7 @@ export const GameOver = () => {
       </LimelightWrapperStyled>
 
       <Button
-        onClick={() => history.replace('/')}
+        onClick={() => history.replace(Routing.Welcome)}
         iconEnd={<Repeat />}
       >Play Again
       </Button>
