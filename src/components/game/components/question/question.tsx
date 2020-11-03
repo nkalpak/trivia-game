@@ -1,6 +1,5 @@
 import React from 'react';
 import parse from 'html-react-parser';
-import { useIsFetching } from 'react-query';
 import { HeadingStyled } from '../../../app/app-styles';
 import { Button } from '../../../button/button';
 import { ButtonSkeletons } from '../../../button/components/button-skeletons';
@@ -11,34 +10,31 @@ import { AnswerSelectedFunction, QuestionType } from '.';
 
 interface QuestionProps {
   question?: QuestionType;
-  onAnswer: AnswerSelectedFunction
+  onAnswer: AnswerSelectedFunction;
+  loading?: boolean;
 }
 
-export const Question: React.FC<QuestionProps> = ({ question, onAnswer }) => {
-  const isFetching = useIsFetching();
+export const Question: React.FC<QuestionProps> = ({ question, onAnswer, loading }) => (
+  <QuestionStyled>
+    <QuestionContainerStyled>
+      {(question && !loading) ? (
+        <HeadingStyled size={22}>{parse(question.question)}</HeadingStyled>
+      ) : <SkeletonBox lines={3} />}
+    </QuestionContainerStyled>
 
-  return (
-    <QuestionStyled>
-      <QuestionContainerStyled>
-        {(question && !isFetching) ? (
-          <HeadingStyled size={22}>{parse(question.question)}</HeadingStyled>
-        ) : <SkeletonBox lines={3} />}
-      </QuestionContainerStyled>
-
-      <AnswersContainerStyled>
-        {(question && !isFetching) ? (
-          mapAnswers(question).map(a => (
-            <Button
-              key={a.answer + a.correct}
-              onClick={() => onAnswer(a)}
-              kind="secondary"
-            >{parse(a.answer)}
-            </Button>
-          ))
-        ) : (
-          <ButtonSkeletons count={4} />
-        )}
-      </AnswersContainerStyled>
-    </QuestionStyled>
-  );
-};
+    <AnswersContainerStyled>
+      {(question && !loading) ? (
+        mapAnswers(question).map(a => (
+          <Button
+            key={a.answer + a.correct}
+            onClick={() => onAnswer(a)}
+            kind="secondary"
+          >{parse(a.answer)}
+          </Button>
+        ))
+      ) : (
+        <ButtonSkeletons count={4} />
+      )}
+    </AnswersContainerStyled>
+  </QuestionStyled>
+);

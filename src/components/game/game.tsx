@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { createGenericContext, useQueryParams } from '../../utils';
+import { useQueryCache } from 'react-query';
+import { createGenericContext } from '../../utils';
 import { ShouldRender } from '../../packages/should-render/should-render';
 import { DesktopCard, Routing } from '../../global';
-import { QuestionDifficulty } from './components/question';
-import { useQuestions } from './use-game';
 import { Questions } from './components/questions/questions';
 import { GameOver } from './components/game-over/game-over';
 import { GameState, GameContextInterface } from './game-types';
@@ -12,20 +11,21 @@ import { GameState, GameContextInterface } from './game-types';
 export const [useGameContext, GameContextProvider] = createGenericContext<GameContextInterface>();
 
 export const Game = () => {
-  const queryParams = useQueryParams();
-  const { questions } = useQuestions(queryParams.get(Routing.Play.Params.difficulty) as QuestionDifficulty);
-
   const [score, setScore] = useState(0);
   const [state, setState] = useState<GameState>('playing');
 
   const history = useHistory();
+  const queryCache = useQueryCache();
 
   const value = {
     score,
     state,
     setScore,
     setState,
-    restartGame: () => history.replace(Routing.Welcome),
+    restartGame: () => {
+      queryCache.removeQueries('questions');
+      history.replace(Routing.Welcome);
+    },
   };
 
   return (
@@ -36,7 +36,7 @@ export const Game = () => {
         </ShouldRender>
 
         <ShouldRender condition={state === 'playing'}>
-          <Questions questions={questions} />
+          <Questions />
         </ShouldRender>
       </GameContextProvider>
     </DesktopCard>

@@ -1,17 +1,19 @@
 import React, { useReducer } from 'react';
-import { AnswerType, QuestionType } from '../question';
+import { AnswerType, QuestionDifficulty } from '../question';
 import { Question } from '../question/question';
 import { AnswerCorrect } from '../answer-correct/answer-correct';
 import { AnswerIncorrect } from '../answer-incorrect/answer-incorrect';
 import { useGameContext } from '../../game';
 import { ShouldRender } from '../../../../packages/should-render/should-render';
+import { useQueryParams } from '../../../../utils';
+import { Routing } from '../../../../global';
 import { questionsInitialState, questionsReducer } from './questions-utils';
+import { useQuestions } from './use-questions';
 
-interface QuestionsProps {
-  questions?: QuestionType[];
-}
+export const Questions = () => {
+  const queryParams = useQueryParams();
+  const { questions, isFetching } = useQuestions(queryParams.get(Routing.Play.Params.difficulty) as QuestionDifficulty);
 
-export const Questions: React.FC<QuestionsProps> = ({ questions }) => {
   const [{
     currentQuestionIndex,
     latestAnswer,
@@ -39,6 +41,7 @@ export const Questions: React.FC<QuestionsProps> = ({ questions }) => {
     <>
       <ShouldRender condition={!showPendingScreen}>
         <Question
+          loading={isFetching}
           question={questions?.[currentQuestionIndex]}
           onAnswer={handleAnswer}
         />

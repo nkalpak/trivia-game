@@ -1,7 +1,7 @@
 import Axios from 'axios';
 import { useQuery } from 'react-query';
-import { API } from '../../global';
-import { QuestionType, QuestionDifficulty } from './components/question';
+import { QuestionDifficulty, QuestionType } from '../question';
+import { API } from '../../../../global';
 
 export const useQuestions = (difficulty: QuestionDifficulty) => {
   const getQuestions = async () => Axios.get(API, {
@@ -13,11 +13,12 @@ export const useQuestions = (difficulty: QuestionDifficulty) => {
     },
   });
 
-  const { data } = useQuery('questions', getQuestions, {
+  const { data, isFetching } = useQuery('questions', getQuestions, {
     refetchOnWindowFocus: false,
   });
 
   return {
     questions: data?.data.results as QuestionType[],
+    isFetching,
   };
 };
