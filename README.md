@@ -1,6 +1,6 @@
 ## Trivia game application
 
-## [Live Demo](https://affectionate-easley-3fa123.netlify.app/)
+## [Live Demo](https://hardcore-pike-9b08fa.netlify.app/)
 
 #### Project Setup
 1. Run `yarn install`
