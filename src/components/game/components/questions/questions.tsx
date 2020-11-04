@@ -12,7 +12,9 @@ import { useQuestions } from './use-questions';
 
 export const Questions = () => {
   const queryParams = useQueryParams();
-  const { questions, isFetching } = useQuestions(queryParams.get(Routing.Play.Params.difficulty) as QuestionDifficulty);
+  const { data: questions, isFetching } = useQuestions(
+    queryParams.get(Routing.Play.Params.difficulty) as QuestionDifficulty,
+  );
 
   const [{
     currentQuestionIndex,
